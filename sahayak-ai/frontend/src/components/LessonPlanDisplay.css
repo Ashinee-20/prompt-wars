@@ -1,0 +1,298 @@
+.lesson-plan-display {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.card-header h3 {
+  color: #333;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+/* Summary Card */
+.summary-card .summary-text {
+  color: #555;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.meta-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.meta-label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.meta-value {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Lesson Plan Card */
+.lesson-steps {
+  list-style-position: inside;
+  color: #555;
+}
+
+.lesson-steps li {
+  margin-bottom: 12px;
+  padding-left: 10px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.lesson-steps li::marker {
+  color: #667eea;
+  font-weight: 600;
+}
+
+/* Activities Card */
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.activity-item {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 5px solid #667eea;
+}
+
+.activity-item h4 {
+  color: #333;
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+}
+
+.activity-item p {
+  margin: 8px 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.activity-grades,
+.activity-time,
+.activity-materials {
+  padding: 5px 0;
+}
+
+/* Time Split Card */
+.time-split-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.time-split-item {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.time-split-item h4 {
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+  text-transform: capitalize;
+}
+
+.time-split-item p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Tips Card */
+.tips-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tips-list li {
+  margin-bottom: 15px;
+  padding: 15px;
+  background: #f0f4ff;
+  border-left: 4px solid #667eea;
+  border-radius: 6px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Resources Card */
+.resources-list {
+  list-style: none;
+  padding: 0;
+}
+
+.resources-list li {
+  margin-bottom: 10px;
+  padding: 12px 15px;
+  background: #f9f9f9;
+  border-radius: 6px;
+  color: #555;
+}
+
+.resources-list li::before {
+  content: '✓ ';
+  color: #667eea;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  flex: 1;
+  min-width: 200px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  margin-top: 5px;
+  min-width: 200px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  background: none;
+  text-align: left;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+  background: #f0f4ff;
+}
+
+.dropdown-item:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 15px;
+  }
+
+  .card-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .activities-grid,
+  .time-split-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .dropdown {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .dropdown-menu {
+    position: fixed;
+    left: 20px;
+    right: 20px;
+    width: auto;
+  }
+}

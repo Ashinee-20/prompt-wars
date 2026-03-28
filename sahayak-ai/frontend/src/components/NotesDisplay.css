@@ -1,0 +1,18 @@
+.notes-display {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.content-list {
+  list-style: none;
+  padding: 0;
+}
+
+.content-list li {
+  margin-bottom: 12px;
+  padding: 14px 16px;
+  background: #f7f9ff;
+  border-left: 4px solid #667eea;
+  border-radius: 8px;
+  color: #555;
+  line-height: 1.6;
+}

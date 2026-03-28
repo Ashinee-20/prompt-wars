@@ -1,0 +1,40 @@
+.quiz-display {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.quiz-questions {
+  display: grid;
+  gap: 20px;
+}
+
+.quiz-question {
+  color: #333;
+  font-size: 1.05rem;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.quiz-options {
+  color: #555;
+  padding-left: 22px;
+  margin-bottom: 18px;
+}
+
+.quiz-options li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.quiz-answer {
+  background: #eef7ee;
+  border-left: 4px solid #38a169;
+  border-radius: 8px;
+  color: #22543d;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+
+.quiz-explanation {
+  color: #666;
+  line-height: 1.6;
+}
