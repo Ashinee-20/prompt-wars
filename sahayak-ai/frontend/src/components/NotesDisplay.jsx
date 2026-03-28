@@ -4,10 +4,10 @@ export default function NotesDisplay({ type, notes }) {
   const isShortNotes = type === 'shortNotes'
 
   return (
-    <section className="notes-display">
+    <section className="notes-display" aria-labelledby="notes-heading">
       <div className="card summary-card">
         <div className="card-header">
-          <h3>{notes.title || (isShortNotes ? 'Short Notes' : 'Class Notes')}</h3>
+          <h3 id="notes-heading">{notes.title || (isShortNotes ? 'Short Notes' : 'Class Notes')}</h3>
         </div>
         <p className="summary-text">{notes.overview || notes.summary}</p>
         <div className="meta-info">

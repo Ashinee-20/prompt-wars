@@ -63,13 +63,17 @@ export default function InputSection({ activeTool, onToolChange, onGenerate, dis
   return (
     <section className="input-section">
       <div className="input-card">
-        <div className="tool-switcher" aria-label="Choose generator type">
+        <div className="tool-switcher" role="tablist" aria-label="Choose generator type">
           <button
             type="button"
             className={activeTool === 'lesson' ? 'tool-chip active' : 'tool-chip'}
             onClick={() => onToolChange('lesson')}
             disabled={disabled}
             aria-pressed={activeTool === 'lesson'}
+            role="tab"
+            aria-selected={activeTool === 'lesson'}
+            aria-controls="generator-panel"
+            id="tab-lesson"
           >
             Lesson Plan
           </button>
@@ -79,6 +83,10 @@ export default function InputSection({ activeTool, onToolChange, onGenerate, dis
             onClick={() => onToolChange('classNotes')}
             disabled={disabled}
             aria-pressed={activeTool === 'classNotes'}
+            role="tab"
+            aria-selected={activeTool === 'classNotes'}
+            aria-controls="generator-panel"
+            id="tab-class-notes"
           >
             Class Notes
           </button>
@@ -88,6 +96,10 @@ export default function InputSection({ activeTool, onToolChange, onGenerate, dis
             onClick={() => onToolChange('shortNotes')}
             disabled={disabled}
             aria-pressed={activeTool === 'shortNotes'}
+            role="tab"
+            aria-selected={activeTool === 'shortNotes'}
+            aria-controls="generator-panel"
+            id="tab-short-notes"
           >
             Short Notes
           </button>
@@ -97,49 +109,57 @@ export default function InputSection({ activeTool, onToolChange, onGenerate, dis
             onClick={() => onToolChange('quiz')}
             disabled={disabled}
             aria-pressed={activeTool === 'quiz'}
+            role="tab"
+            aria-selected={activeTool === 'quiz'}
+            aria-controls="generator-panel"
+            id="tab-quiz"
           >
             Quiz
           </button>
         </div>
 
-        <h2>{currentTool.title}</h2>
-        <p>{currentTool.subtitle}</p>
+        <div id="generator-panel" role="tabpanel" aria-labelledby={`tab-${activeTool === 'classNotes' ? 'class-notes' : activeTool === 'shortNotes' ? 'short-notes' : activeTool}`}>
+          <h2>{currentTool.title}</h2>
+          <p>{currentTool.subtitle}</p>
 
-        <form onSubmit={handleSubmit}>
-          <label className="sr-only" htmlFor="teacher-input">
-            Describe the class context and required output
-          </label>
-          <textarea
-            id="teacher-input"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Describe the class, topic, grade levels, time available, student level, and what kind of output the teacher needs."
-            disabled={disabled}
-            rows="5"
-            aria-describedby="teacher-input-help"
-          />
-          <p id="teacher-input-help" className="input-help">
-            Include class level, topic, time available, learner needs, and any classroom constraints.
-          </p>
-          <button type="submit" disabled={disabled || !input.trim()}>
-            {disabled ? 'Generating...' : currentTool.buttonLabel}
-          </button>
-        </form>
+          <form onSubmit={handleSubmit}>
+            <label className="sr-only" htmlFor="teacher-input">
+              Describe the class context and required output
+            </label>
+            <textarea
+              id="teacher-input"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Describe the class, topic, grade levels, time available, student level, and what kind of output the teacher needs."
+              disabled={disabled}
+              rows="5"
+              aria-describedby="teacher-input-help"
+              aria-required="true"
+            />
+            <p id="teacher-input-help" className="input-help">
+              Include class level, topic, time available, learner needs, and any classroom constraints.
+            </p>
+            <button type="submit" disabled={disabled || !input.trim()}>
+              {disabled ? 'Generating...' : currentTool.buttonLabel}
+            </button>
+          </form>
 
-        <div className="examples">
-          <p className="examples-label">Try these examples:</p>
-          <div className="example-buttons">
-            {currentTool.examples.map((example, idx) => (
-              <button
-                key={idx}
-                type="button"
-                className="example-btn"
-                onClick={() => fillExample(example)}
-                disabled={disabled}
-              >
-                Example {idx + 1}
-              </button>
-            ))}
+          <div className="examples">
+            <p className="examples-label">Try these examples:</p>
+            <div className="example-buttons">
+              {currentTool.examples.map((example, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  className="example-btn"
+                  onClick={() => fillExample(example)}
+                  disabled={disabled}
+                  aria-label={`Use example ${idx + 1} for ${currentTool.title}`}
+                >
+                  Example {idx + 1}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>

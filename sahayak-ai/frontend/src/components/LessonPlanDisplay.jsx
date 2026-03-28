@@ -2,10 +2,10 @@ import './LessonPlanDisplay.css'
 
 export default function LessonPlanDisplay({ lessonPlan, onSimplify, isLoading }) {
   return (
-    <section className="lesson-plan-display">
+    <section className="lesson-plan-display" aria-labelledby="lesson-plan-heading">
       <div className="card summary-card">
         <div className="card-header">
-          <h3>Summary</h3>
+          <h3 id="lesson-plan-heading">Summary</h3>
         </div>
         <p className="summary-text">{lessonPlan.summary}</p>
         <div className="meta-info">

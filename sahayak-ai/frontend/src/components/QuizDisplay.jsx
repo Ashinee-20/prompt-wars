@@ -2,10 +2,10 @@ import './QuizDisplay.css'
 
 export default function QuizDisplay({ quiz }) {
   return (
-    <section className="quiz-display">
+    <section className="quiz-display" aria-labelledby="quiz-heading">
       <div className="card summary-card">
         <div className="card-header">
-          <h3>{quiz.title || 'Classroom Quiz'}</h3>
+          <h3 id="quiz-heading">{quiz.title || 'Classroom Quiz'}</h3>
         </div>
         <p className="summary-text">{quiz.instructions}</p>
         <div className="meta-info">
